@@ -4,6 +4,27 @@
       type="search"
       class="form-control"
       placeholder="Enter a song name"
+      [formControl]="searchField"
+    />
+  </div>
+</form>
+<hr />
+<div class="text-center">
+  <p *ngIf="loading">loading...</p>
+</div>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let track of results | async">
+    <img src="{{ track.thumbnail }}" />
+    <a target="_blank" href="{{ track.link }}">{{ track.track }} </a>
+  </li>
+</ul>
+<!-- Use async  -->
+<!-- <form class="form-inline">
+  <div class="form-group">
+    <input
+      type="search"
+      class="form-control"
+      placeholder="Enter a song name"
       #search
     />
     <button
@@ -20,8 +41,9 @@
   <p *ngIf="loading">loading...</p>
 </div>
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let track of results">
+  <li class="list-group-item" *ngFor="let track of results | async">
     <img src="{{ track.thumbnail }}" />
     <a target="_blank" href="{{ track.link }}">{{ track.track }} </a>
   </li>
 </ul>
+ -->
