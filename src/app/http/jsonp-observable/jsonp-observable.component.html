@@ -1,3 +1,20 @@
-<p>
-  jsonp-observable works!
-</p>
+<form class="form-inline">
+  <div class="form-group">
+    <input
+      type="search"
+      class="form-control"
+      placeholder="Enter a songs name"
+      [formControl]="searchField"
+    />
+  </div>
+</form>
+<hr />
+<div class="text-center">
+  <p *ngIf="loading">Loading....</p>
+</div>
+<ul class="list-group">
+  <li *ngFor="let item of results | async" class="list-group-item">
+    <img src="{{ item.thumbnail }}" alt="" />
+    <a target="_blank" href="{{ item.link }}">{{ item.track }} </a>
+  </li>
+</ul>

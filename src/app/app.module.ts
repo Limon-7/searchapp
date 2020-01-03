@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -10,7 +10,6 @@ import { appRoutes } from './_routing/route';
 import { CorePromiseComponent } from './http/core-promise/core-promise.component';
 import { CoreObservableComponent } from './http/core-observable/core-observable.component';
 import { JsonpObservableComponent } from './http/jsonp-observable/jsonp-observable.component';
-import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,8 @@ import { from } from 'rxjs';
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientJsonpModule
 
   ],
   providers: [
